@@ -83,7 +83,7 @@ class Monkey:
     def get_survey_responses(self, survey_id):
 
         # get the first page of responses
-        data = self._get_survey_response_page(self, survey_id, page_num=1)
+        data = self._get_survey_response_page(survey_id, page_num=1)
 
         # get the total number of responses
         last_page = ceil(data["total"] / 100)
@@ -92,7 +92,7 @@ class Monkey:
         responses = []
         for p in range(1, last_page + 1):
             print(f"Submitting query for page number {p} of {last_page}")
-            data = self._get_survey_response_page(self.session, survey_id, page_num=p)
+            data = self._get_survey_response_page(survey_id, page_num=p)
             responses.extend(data["data"])
 
         return responses
