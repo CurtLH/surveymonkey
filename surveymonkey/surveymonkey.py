@@ -91,7 +91,6 @@ class Monkey:
         # iterate over the pages to get all the responses
         responses = []
         for p in range(1, last_page + 1):
-            print(f"Submitting query for page number {p} of {last_page}")
             data = self._get_survey_response_page(survey_id, page_num=p)
             responses.extend(data["data"])
 
